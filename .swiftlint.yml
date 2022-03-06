@@ -1,0 +1,22 @@
+
+disabled_rules:
+- trailing_whitespace
+- nesting
+- force_try
+- force_cast
+
+excluded:
+- Pods/
+- Podfile
+- Podfile.lock
+
+line_length: 300
+
+variable_name:
+  max_length:
+    warning: 60
+    error: 80
+  min_length:
+    warning: 1
+    error: 0
+
