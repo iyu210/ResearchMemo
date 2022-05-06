@@ -17,6 +17,7 @@ class CiniiSearch {
     
     private var searchText: String?
     private var resultArray = [Article]()
+    privete let apiId = "" //githu上では空白にしています。
     var searchDataSource: SearchDataSource?
     
     init(searchText: String?) {
@@ -28,7 +29,7 @@ class CiniiSearch {
             return
         }
         let searchWords = searchText.replacingOccurrences(of: " ", with: "+")
-        let url = "https://ci.nii.ac.jp/opensearch/search?q=\(searchWords)&range=0&count=100&sortorder=7&format=json&type=0&appid=7oPddfvWLO8qAEvaAsWl"
+        let url = "https://ci.nii.ac.jp/opensearch/search?q=\(searchWords)&range=0&count=100&sortorder=7&format=json&type=0&appid=\(apiId)"
         let encodedUrlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
        
         AF.request(encodedUrlString, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
